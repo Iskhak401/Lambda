@@ -23,8 +23,21 @@ jobs:
         AWS_REGION: us-east-1 # Replace with your desired region
       run: |
         cd functions/abrigo
-        zip -r lambda.zip lambda_function.py # Zip the Lambda code
-        aws s3 cp lambda.zip s3://lambdagoooo/lambda.zip 
+        zip -r abrigo.zip lambda_function.py # Zip the Lambda code
+        aws s3 cp abrigo.zip s3://lambdagoooo/abrigo.zip
+
+    - name: Upload to S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: us-east-1 # Replace with your desired region
+      run: |
+        cd functions/cognito_auth_logging
+        zip -r cognito.zip lambda_function.py # Zip the Lambda code
+        aws s3 cp abrigo.zip s3://lambdagoooo/cognito.zip
+
+
+       
 
     # Add more steps as needed, such as updating the Terraform configuration.
 
