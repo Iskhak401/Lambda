@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO, force=True)
 # Uncomment the line below in order to debug
 # logging.basicConfig(level=logging.DEBUG, force=True)
 
-NO_STATUS = "- No statusss -"
+NO_STATUS = "- No statussss -"
 
 
 def _get_api_token(cursor, integration_id):
