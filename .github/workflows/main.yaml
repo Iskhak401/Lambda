@@ -24,7 +24,7 @@ jobs:
       run: |
         cd functions/abrigo
         zip -r abrigo.zip lambda_function.py # Zip the Lambda code
-        aws s3 cp abrigo.zip s3://lambdagoooo/abrigo.zip
+        aws s3 cp abrigo.zip s3://lambdagos/abrigo.zip
 
     - name: Upload to S3
       env:
@@ -34,7 +34,7 @@ jobs:
       run: |
         cd functions/cognito_auth_logging
         zip -r cognito.zip lambda_function.py # Zip the Lambda code
-        aws s3 cp cognito.zip s3://lambdagoooo/cognito.zip
+        aws s3 cp cognito.zip s3://lambdagos/cognito.zip
 
 
        
