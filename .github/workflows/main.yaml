@@ -11,10 +11,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies and package Lambda code
-      run: |
-        pip install --upgrade pip
-        pip install boto3
+    # - name: Install dependencies and package Lambda code
+    #   run: |
+    #     pip install --upgrade pip
+    #     pip install boto3
 
     - name: Upload to S3
       env:
