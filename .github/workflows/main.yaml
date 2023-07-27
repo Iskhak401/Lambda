@@ -34,7 +34,7 @@ jobs:
       run: |
         cd functions/cognito_auth_logging
         zip -r cognito.zip lambda_function.py # Zip the Lambda code
-        aws s3 cp abrigo.zip s3://lambdagoooo/cognito.zip
+        aws s3 cp cognito.zip s3://lambdagoooo/cognito.zip
 
 
        
