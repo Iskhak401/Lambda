@@ -1,0 +1,30 @@
+name: Upload to S3
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_lambda:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies and package Lambda code
+      run: |
+        # Replace these commands with the appropriate build commands for your Lambda code.
+        cd lambda_directory
+        npm install
+        zip -r lambda_function.zip .
+
+    - name: Upload to S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: us-west-2 # Replace with your desired region
+      run: |
+        aws s3 cp lambda_function.zip s3://your-s3-bucket-name/
+
+    # Add more steps as needed, such as updating the Terraform configuration.
+
